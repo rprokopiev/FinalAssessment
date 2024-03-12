@@ -8,13 +8,23 @@ class RegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True)
     class Meta:
         model = User
-        fields = ('username', 'email', 'password1', 'password2')
+        fields = ['username', 'email', 'password1', 'password2']
+        labels = {
+            'username': 'Имя пользователя', 
+            'email': 'Электронная почта', 
+            'password1': 'Пароль', 
+            'password2': 'Повторите пароль'
+        }
 
 
 class LoginForm(AuthenticationForm):
     class Meta:
         model = User
         fields = ('username', 'password')
+        labels = {
+            'username': 'Имя пользователя', 
+            'password': 'Пароль', 
+        }
 
 
 class RecipeForm(forms.ModelForm):
@@ -23,3 +33,11 @@ class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe
         fields = ['title', 'description', 'steps', 'cooking_time', 'image', 'categories']
+        labels = {
+            'title': 'Название', 
+            'description': 'Описание', 
+            'steps': 'Шаги приготовлеия', 
+            'cooking_time': 'Время приготовления',
+            'image': 'Картинка', 
+            'categories': 'Категория',
+        }
