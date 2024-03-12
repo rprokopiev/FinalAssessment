@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout
 from .models import Recipe, Category
 from random import choice
-from .forms import RegistrationForm, LoginForm, RecipeForm
+from .forms import RegistrationForm, LoginForm, RecipeForm, CategoryForm
 
 
 def home(request):
@@ -81,3 +81,14 @@ def logout_view(request):
 def recipe_list_view(request):
     recipes = Recipe.objects.all()
     return render(request, 'recipe/recipe_list.html', {'recipes': recipes})
+
+
+def add_category_view(request):
+    if request.method == 'POST':
+        form = CategoryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('category_list')
+    else:
+        form = CategoryForm()
+    return render(request, 'recipe/add_category.html', {'form': form})

@@ -1,14 +1,14 @@
 {% extends 'recipe/base.html' %}
 
 {% block title %} 
-    EditAddRecipe
+    AddCategory
 {% endblock%}
 
 {% block content %} 
-    <h3>Редактирование</h3>
+    <h3>Новая категория</h3>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Сохранить изменения</button>
+        {{ form }}
+        <button type="submit">Добавить</button>
     </form>
 {% endblock%}

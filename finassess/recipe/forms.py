@@ -41,3 +41,12 @@ class RecipeForm(forms.ModelForm):
             'image': 'Картинка', 
             'categories': 'Категория',
         }
+
+
+class CategoryForm(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields = ['name']
+        labels = {
+            'name': 'Название категории',
+        }

@@ -5,12 +5,30 @@
 {% endblock%}
 
 {% block content %} 
-    <h2>All Recipes</h2>
-    <ul>
+    <h2>Все рецепты</h2>
+
+    <a href="{% url 'add_recipe'%}">Добавить</a></li>
+
+    <table>
+        <tr>
+            <th>Название</th>
+            <th>Время приготовления</th>
+            <th>Категория</th>
+            <th></th>
+        </tr>
+            
         {% for recipe in recipes %}
-            <li><a href="{% url 'recipe_detail' recipe.id %}">{{ recipe.title }}</a></li>
-        {% empty %}
-            <li>No recipes found.</li>
+        <tr>
+            <th><a href="{% url 'recipe_detail' recipe.id %}">{{ recipe.title }}</a></th>
+            <th>{{ recipe.steps }}</th>
+            <th>{{ recipe.categories }}</th>
+            <th><a href="{% url 'edit_recipe' recipe.id %}">Редактировать</a></th>
+        </tr>
+            {% empty %}
+            <li>Нет Рецептов.<a href="{% url 'add_recipe'%}">добавить</a></li>
         {% endfor %}
-    </ul>
+    </table>
+
+    <a href="{% url 'add_recipe'%}">Добавить</a></li>
+
 {% endblock%}

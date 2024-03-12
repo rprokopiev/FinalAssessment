@@ -10,7 +10,7 @@
     {% for category in categories %}
       <li>{{ category.name }}</li>
     {% empty %}
-      <li>No categories found.</li>
+      <li>No categories found.<a href="{% url 'category_list'%}">добавить</a></li>
     {% endfor %}
   </ul>
 {% endblock %}
