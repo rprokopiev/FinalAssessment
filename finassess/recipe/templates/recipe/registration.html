@@ -2,8 +2,13 @@
 
 {% block title %} 
     Registration
-{% endblock%}
+{% endblock %}
 
 {% block content %} 
-    {{ test }}
-{% endblock%}
+    <h3>РЕГИСТРАЦИЯ</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Зарегистрировать</button>
+    </form>
+{% endblock %}

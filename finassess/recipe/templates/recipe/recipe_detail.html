@@ -5,5 +5,15 @@
 {% endblock%}
 
 {% block content %} 
-    {{ test }}
+    <h3>{{ recipe.title }}</h3>
+    <p>{{ recipe.description }}</p>
+    <p>Steps:</p>
+        <ol>
+        {% for step in recipe.steps %}
+            <li>{{ step }}</li>
+        {% endfor %}
+        </ol>
+    <p>Cooking Time: {{ recipe.cooking_time }} minutes</p>
+    <img src="{{ recipe.image.url }}" alt="{{ recipe.title }} image">
+    <p>Author: {{ recipe.author }}</p>
 {% endblock%}

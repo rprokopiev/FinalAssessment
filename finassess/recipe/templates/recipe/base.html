@@ -6,12 +6,17 @@
     <title>{% block title %}TBC{% endblock %}</title>
 </head>
 <body>
-    <header><h2>Default Application Header</h2></header>
+    <header><h2>Заголовок сайта</h2></header>
+    <a href="{% url 'login' %}">Войти</a>
+    <a href="{% url 'registration' %}">Зарегистрироваться</a>
+    <a href="{% url 'logout' %}">Выйти</a>
+
+    <h3><a href="{% url 'recipe_list' %}">Все рецепты</a></h3>
     <div>
         {% block content %}
             TBC
         {% endblock %}
     </div>
-    <footer><h2>Default Application Footer</h2></footer>
+    <footer><h2>Нижний колонтитул сайта</h2></footer>
 </body>
 </html>

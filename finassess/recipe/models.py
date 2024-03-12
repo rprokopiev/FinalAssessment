@@ -10,6 +10,6 @@ class Recipe(models.Model):
     description = models.TextField()
     steps = models.TextField()
     cooking_time = models.PositiveIntegerField()
-    image = models.ImageField(upload_to='recipe_images/')
+    image = models.ImageField(upload_to='recipe_images/', blank=True)
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)

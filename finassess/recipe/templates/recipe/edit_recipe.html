@@ -5,10 +5,10 @@
 {% endblock%}
 
 {% block content %} 
-    <h3>Новый рецепт</h3>
+    <h3>Редактирование</h3>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
-        <button type="submit">Добавить</button>
+        <button type="submit">Сохранить изменения</button>
     </form>
 {% endblock%}
